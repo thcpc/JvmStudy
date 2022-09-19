@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Map;
 
 public class ClassTest {
 
@@ -21,12 +22,16 @@ public class ClassTest {
     public void testClassConstantPool() throws FileNotFoundException {
         ClazzLoader clazzLoader = new ClazzLoader(new File("build\\classes\\java\\main\\ConstantPoolTest.class"));
         Clazz clazz =  clazzLoader.getClazz();
-        assert clazz.getConstantPoolCount() == 62;
+        assert clazz.getConstantPoolCount() == 106;
 
         ConstantInfo[] constantPool = clazz.getConstantPool();
         assert constantPool.length == clazz.getConstantPoolCount();
+        assert constantPool[1].name().equals("Methodref");
 //        for(int i = 1;i < clazz.getConstantPoolCount();i++){
 //            clazz.getConstantPool()
-//        }
+    }
+
+    private int getKey(ConstantInfo constantInfo, String key){
+        return ((Map<String,Integer>)constantInfo.getValue()).get(key);
     }
 }
