@@ -10,6 +10,8 @@ public class Clazz {
 
     private ConstantPool constantPool;
 
+    private AccessFlags accessFlags;
+
     public ConstantInfo[] getConstantPool() {
         return constantPool.getValue();
     }
@@ -26,7 +28,11 @@ public class Clazz {
         this.constantPoolCount = constantPoolCount;
     }
 
+    public void setAccessFlags(AccessFlags accessFlags) {
+        this.accessFlags = accessFlags;
+    }
 
+    public long getAccessFlags(){ return this.accessFlags.getValue();}
 
     public Clazz(){}
 

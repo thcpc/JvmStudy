@@ -9,18 +9,26 @@ import java.util.Map;
 
 public class ClassTest {
 
+
+    public String getPath(){
+        if(System.getProperty("os.name").equals("Mac OS X")) return "build/classes/java/main/ConstantPoolTest.class";
+        return "build\\classes\\java\\main\\ConstantPoolTest.class";
+    }
+
     @Test
     public void testClass() throws FileNotFoundException {
-        ClazzLoader clazzLoader = new ClazzLoader(new File("build\\classes\\java\\main\\ConstantPoolTest.class"));
+
+        ClazzLoader clazzLoader = new ClazzLoader(new File(this.getPath()));
         Clazz clazz =  clazzLoader.getClazz();
         assert clazz.isJavaCLass();
         assert clazz.jdk().equals("JDK8");
         System.out.println(clazz.getConstantPoolCount());
+        System.out.println(clazz.getAccessFlags());
     }
 
     @Test
     public void testClassConstantPool() throws FileNotFoundException {
-        ClazzLoader clazzLoader = new ClazzLoader(new File("build\\classes\\java\\main\\ConstantPoolTest.class"));
+        ClazzLoader clazzLoader = new ClazzLoader(new File(this.getPath()));
         Clazz clazz =  clazzLoader.getClazz();
         assert clazz.getConstantPoolCount() == 106;
 

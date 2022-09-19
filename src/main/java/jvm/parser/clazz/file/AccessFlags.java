@@ -1,4 +1,9 @@
 package jvm.parser.clazz.file;
 
-public class AccessFlags {
+import jvm.parser.datatype.ByteCode;
+
+public class AccessFlags extends ByteCode<Integer> {
+    public AccessFlags(Integer value) {
+        super(value);
+    }
 }

@@ -1,6 +1,7 @@
 package jvm.parser.constant.pools;
 
 
+
 public class ConstantLongInfo extends ConstantInfo<Long>{
 
     public ConstantLongInfo(Long value) {
