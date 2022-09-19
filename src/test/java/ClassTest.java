@@ -10,7 +10,7 @@ public class ClassTest {
 
     @Test
     public void testClass() throws FileNotFoundException {
-        ClazzLoader clazzLoader = new ClazzLoader(new File("/Users/chenpengcheng/GitHub/JVMStudy/build/classes/java/main/ConstantPoolInteger.class"));
+        ClazzLoader clazzLoader = new ClazzLoader(new File("build\\classes\\java\\main\\ConstantPoolTest.class"));
         Clazz clazz =  clazzLoader.getClazz();
         assert clazz.isJavaCLass();
         assert clazz.jdk().equals("JDK8");
@@ -19,7 +19,7 @@ public class ClassTest {
 
     @Test
     public void testClassConstantPool() throws FileNotFoundException {
-        ClazzLoader clazzLoader = new ClazzLoader(new File("/Users/chenpengcheng/GitHub/JVMStudy/build/classes/java/main/ConstantPoolTest.class"));
+        ClazzLoader clazzLoader = new ClazzLoader(new File("build\\classes\\java\\main\\ConstantPoolTest.class"));
         Clazz clazz =  clazzLoader.getClazz();
         assert clazz.getConstantPoolCount() == 62;
 
