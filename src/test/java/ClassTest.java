@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Map;
 
 public class ClassTest {
@@ -24,6 +25,10 @@ public class ClassTest {
         assert clazz.jdk().equals("JDK8");
         System.out.println(clazz.getConstantPoolCount());
         System.out.println(clazz.getAccessFlags());
+        System.out.println(clazz.getThisClazz());
+        System.out.println(clazz.getSuperClazz());
+        Arrays.stream(clazz.getInterfaces()).forEach(System.out::println);
+
     }
 
     @Test

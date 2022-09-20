@@ -25,6 +25,9 @@ public class ClazzLoader {
         tokes.add(new ConstantPoolCountToken());
         tokes.add(new ConstantPoolToken());
         tokes.add(new AccessFlagToken());
+        tokes.add(new ThisClassToken());
+        tokes.add(new SuperClazzToken());
+        tokes.add(new InterfaceToken());
         this.visitor();
     }
 

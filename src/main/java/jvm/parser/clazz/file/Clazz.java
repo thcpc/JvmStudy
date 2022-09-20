@@ -1,6 +1,12 @@
 package jvm.parser.clazz.file;
 
+import jvm.parser.constant.pools.ConstantClassInfo;
 import jvm.parser.constant.pools.ConstantInfo;
+import jvm.parser.constant.pools.ConstantUtf8Info;
+
+import java.util.Arrays;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Clazz {
     private MagicNumber magicNumber;
@@ -11,6 +17,8 @@ public class Clazz {
     private ConstantPool constantPool;
 
     private AccessFlags accessFlags;
+
+    private ThisClazz thisClazz;
 
     public ConstantInfo[] getConstantPool() {
         return constantPool.getValue();
@@ -33,6 +41,43 @@ public class Clazz {
     }
 
     public long getAccessFlags(){ return this.accessFlags.getValue();}
+
+    public void setThisClazz(ThisClazz thisClazz){ this.thisClazz = thisClazz; }
+
+    private Interfaces interfaces;
+
+
+    public String[] getInterfaces() {
+        return Arrays.stream(interfaces.getValue())
+                .map(class_index -> ((ConstantClassInfo)this.getConstantPool()[class_index]).getValue().get(ConstantClassInfo.NameIndex))
+                .map(utf_index->(String)this.getConstantPool()[utf_index].getValue()).toArray(String[]::new);
+    }
+
+    public void setInterfaces(Interfaces interfaces) {
+        this.interfaces = interfaces;
+    }
+
+    private SuperClazz superClazz;
+
+    public String getSuperClazz() {
+        int class_index = this.superClazz.getValue();
+        final ConstantClassInfo constantClassInfo = (ConstantClassInfo)this.getConstantPool()[class_index];
+        int utf_index = constantClassInfo.getValue().get(ConstantClassInfo.NameIndex);
+        final ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) this.getConstantPool()[utf_index];
+        return constantUtf8Info.getValue();
+    }
+
+    public void setSuperClazz(SuperClazz superClazz) {
+        this.superClazz = superClazz;
+    }
+
+    public String getThisClazz(){
+        int class_index = this.thisClazz.getValue();
+        final ConstantClassInfo constantClassInfo = (ConstantClassInfo)this.getConstantPool()[class_index];
+        int utf_index = constantClassInfo.getValue().get(ConstantClassInfo.NameIndex);
+        final ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) this.getConstantPool()[utf_index];
+        return constantUtf8Info.getValue();
+    }
 
     public Clazz(){}
 
