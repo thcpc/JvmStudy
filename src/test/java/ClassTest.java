@@ -1,6 +1,6 @@
-import jvm.parser.clazz.file.Clazz;
-import jvm.parser.constant.pools.ConstantInfo;
-import jvm.parser.reader.ClazzLoader;
+import jvm.parser.clazz.Clazz;
+import jvm.parser.clazz.constant.pools.ConstantInfo;
+import jvm.parser.loader.ClazzLoader;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -20,7 +20,7 @@ public class ClassTest {
     public void testClass() throws FileNotFoundException {
 
         ClazzLoader clazzLoader = new ClazzLoader(new File(this.getPath()));
-        Clazz clazz =  clazzLoader.getClazz();
+        Clazz clazz =  clazzLoader.getGeneratedObject();
         assert clazz.isJavaCLass();
         assert clazz.jdk().equals("JDK8");
         System.out.println(clazz.getConstantPoolCount());
@@ -34,7 +34,7 @@ public class ClassTest {
     @Test
     public void testClassConstantPool() throws FileNotFoundException {
         ClazzLoader clazzLoader = new ClazzLoader(new File(this.getPath()));
-        Clazz clazz =  clazzLoader.getClazz();
+        Clazz clazz =  clazzLoader.getGeneratedObject();
         assert clazz.getConstantPoolCount() == 106;
 
         ConstantInfo[] constantPool = clazz.getConstantPool();

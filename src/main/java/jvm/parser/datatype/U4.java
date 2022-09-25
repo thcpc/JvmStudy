@@ -1,9 +1,7 @@
 package jvm.parser.datatype;
 
-import jvm.parser.clazz.file.MagicNumber;
-
 import java.io.InputStream;
 
 public interface U4 {
-     long read(InputStream inputStream);
+     default long readU4(InputStream inputStream) {return BytesReader.four(inputStream);}
 }
