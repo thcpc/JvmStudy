@@ -45,6 +45,8 @@ public class Clazz {
     private Interfaces interfaces;
 
 
+
+
     public String[] getInterfaces() {
         return Arrays.stream(interfaces.getValue())
                 .map(class_index -> ((ConstantClassInfo)this.getConstantPool()[class_index]).getValue().get(ConstantClassInfo.NameIndex))
@@ -76,6 +78,13 @@ public class Clazz {
         final ConstantUtf8Info constantUtf8Info = (ConstantUtf8Info) this.getConstantPool()[utf_index];
         return constantUtf8Info.getValue();
     }
+
+    private Fields fields;
+
+    public void setFields(Fields fields){ this.fields = fields; }
+
+    public Fields getFields(){ return fields; }
+
 
     public Clazz(){}
 
