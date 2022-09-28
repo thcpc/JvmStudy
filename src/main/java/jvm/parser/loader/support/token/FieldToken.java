@@ -19,7 +19,7 @@ public class FieldToken extends Visitor<Fields,InputStream> implements U2, U1, U
     @Override
     public void accept(ClazzLoader clazzLoader, InputStream inputStream) {
             this.visit(inputStream);
-            clazzLoader.getGeneratedObject().setFields(this.getGeneratedObject());
+            clazzLoader.getClazz().setFields(this.getGeneratedObject());
     }
 
     @Override
@@ -35,6 +35,7 @@ public class FieldToken extends Visitor<Fields,InputStream> implements U2, U1, U
                 fieldToken.getGeneratedObject().getValue().put(Fields.FieldCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
             }
         });
+
         this.tokes.add(new FieldInfoToken());
     }
 

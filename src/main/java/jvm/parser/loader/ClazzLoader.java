@@ -34,6 +34,7 @@ public class ClazzLoader extends Visitor<Clazz,FileInputStream> {
         tokes.add(new ThisClassToken());
         tokes.add(new SuperClazzToken());
         tokes.add(new InterfaceToken());
+        tokes.add(new FieldToken());
     }
 
     @Override
@@ -45,6 +46,8 @@ public class ClazzLoader extends Visitor<Clazz,FileInputStream> {
             }
         });
     }
+
+    public Clazz getClazz(){ return this.getGeneratedObject(); }
 
 
 

@@ -85,6 +85,10 @@ public class Clazz {
 
     public Fields getFields(){ return fields; }
 
+    public int fieldCount(){
+        return (int) fields.getValue().get(Fields.FieldCount).getValue();
+    }
+
 
     public Clazz(){}
 

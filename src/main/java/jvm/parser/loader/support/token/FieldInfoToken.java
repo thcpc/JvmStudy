@@ -2,21 +2,26 @@ package jvm.parser.loader.support.token;
 
 import jvm.parser.clazz.Fields;
 import jvm.parser.clazz.fields.FieldInfo;
+import jvm.parser.clazz.fields.FieldInfos;
 import jvm.parser.datatype.*;
-import jvm.parser.loader.ClazzLoader;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.function.Consumer;
 
-public class FieldInfoToken extends Visitor<FieldInfo, InputStream> implements U2, Token<FieldToken> {
-    private FieldInfo fieldInfo;
+public class FieldInfoToken extends Visitor<FieldInfos, InputStream> implements U2, Token<FieldToken> {
+    private FieldInfos fieldInfos;
+
+    public FieldInfoToken() {
+        this.initVisitor();
+    }
 
     @Override
     protected void createVisitObject() {
-        this.generatedObject = new FieldInfo(new HashMap<>());
+        this.generatedObject = new FieldInfos(new LinkedList<FieldInfo>());
     }
 
     @Override
@@ -24,27 +29,27 @@ public class FieldInfoToken extends Visitor<FieldInfo, InputStream> implements U
         this.tokes.add(new Token<FieldInfoToken>() {
             @Override
             public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
-                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfo.ACCESS_FLAGS, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
+                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfos.ACCESS_FLAGS, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
             }
         });
-        this.tokes.add(new Token<FieldInfoToken>() {
-            @Override
-            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
-                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfo.NameIndex, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
-            }
-        });
-        this.tokes.add(new Token<FieldInfoToken>() {
-            @Override
-            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
-                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfo.DescriptionIndex, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
-            }
-        });
-        this.tokes.add(new Token<FieldInfoToken>() {
-            @Override
-            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
-                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfo.AttributeCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
-            }
-        });
+//        this.tokes.add(new Token<FieldInfoToken>() {
+//            @Override
+//            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
+//                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfos.NameIndex, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
+//            }
+//        });
+//        this.tokes.add(new Token<FieldInfoToken>() {
+//            @Override
+//            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
+//                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfos.DescriptionIndex, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
+//            }
+//        });
+//        this.tokes.add(new Token<FieldInfoToken>() {
+//            @Override
+//            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
+//                fieldInfoToken.getGeneratedObject().getValue().put(FieldInfos.AttributeCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
+//            }
+//        });
     }
 
     @Override
@@ -59,8 +64,9 @@ public class FieldInfoToken extends Visitor<FieldInfo, InputStream> implements U
 
     @Override
     public void accept(FieldToken fieldToken, InputStream inputStream) {
-        this.visit(inputStream);
-        fieldToken.getGeneratedObject().getValue().put(Fields.FieldInfo, this.getGeneratedObject());
+        int count = (int) fieldToken.getGeneratedObject().getValue().get(Fields.FieldCount).getValue();
+        for(int i = 0;i<=count; i ++) this.visit(inputStream);
+//        fieldToken.getGeneratedObject().getValue().put(Fields.FieldInfo, this.getGeneratedObject());
 
     }
 }

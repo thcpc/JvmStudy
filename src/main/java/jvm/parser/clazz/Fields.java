@@ -1,7 +1,6 @@
 package jvm.parser.clazz;
 
 import jvm.parser.datatype.ByteCode;
-import jvm.parser.clazz.fields.FieldInfo;
 
 import java.util.Map;
 

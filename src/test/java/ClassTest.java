@@ -28,6 +28,7 @@ public class ClassTest {
         System.out.println(clazz.getThisClazz());
         System.out.println(clazz.getSuperClazz());
         Arrays.stream(clazz.getInterfaces()).forEach(System.out::println);
+        System.out.println(clazz.fieldCount());
 
     }
 

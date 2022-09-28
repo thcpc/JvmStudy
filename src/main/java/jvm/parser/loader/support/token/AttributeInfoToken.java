@@ -1,9 +1,8 @@
 package jvm.parser.loader.support.token;
 
 import jvm.parser.clazz.attributes.AttributeInfo;
-import jvm.parser.clazz.fields.FieldInfo;
+import jvm.parser.clazz.fields.FieldInfos;
 import jvm.parser.datatype.*;
-import jvm.parser.loader.ClazzLoader;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
 
@@ -38,7 +37,7 @@ public class AttributeInfoToken extends Visitor<AttributeInfo, InputStream> impl
         this.tokes.add(new Token<AttributeInfoToken>() {
             @Override
             public void accept(AttributeInfoToken attributeInfoToken, InputStream inputStream) {
-                attributeInfoToken.getGeneratedObject().getValue().put(FieldInfo.AttributeCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
+                attributeInfoToken.getGeneratedObject().getValue().put(FieldInfos.AttributeCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
             }
         });
     }
