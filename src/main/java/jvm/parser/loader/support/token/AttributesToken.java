@@ -1,14 +1,9 @@
 package jvm.parser.loader.support.token;
 
-import jvm.parser.clazz.AccessFlags;
 import jvm.parser.clazz.attributes.AttributeInfo;
-import jvm.parser.clazz.attributes.AttributeLength;
-import jvm.parser.clazz.attributes.AttributeNameIndex;
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeLength;
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeNameIndex;
 import jvm.parser.clazz.attributes.Attributes;
-import jvm.parser.clazz.fields.FieldDescriptionIndex;
-import jvm.parser.clazz.fields.FieldInfo;
-import jvm.parser.clazz.fields.FieldInfos;
-import jvm.parser.clazz.fields.FieldNameIndex;
 import jvm.parser.datatype.*;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
@@ -39,24 +34,12 @@ public class AttributesToken extends Visitor<Attributes, InputStream> implements
                 AttributeLength attributeLength = new AttributeLength(readU4(inputStream));
 
                 Map<String,ByteCode> value = new HashMap<>();
-                value.put(AttributeInfo.AttributeLength,attributeLength);
-                value.put(AttributeInfo.AttributeNameIndex, attributeNameIndex);
+                value.put(AttributeInfo.ATTRIBUTE_LENGTH,attributeLength);
+                value.put(AttributeInfo.ATTRIBUTE_NAME_INDEX, attributeNameIndex);
                 // TODO 插入Attributes
                 attributesToken.getGeneratedObject().getValue().add(new AttributeInfo(value));
             }
         });
-//        this.tokes.add(new Token<AttributeInfoToken>() {
-//            @Override
-//            public void accept(AttributeInfoToken attributeInfoToken, InputStream inputStream) {
-//                attributeInfoToken.getGeneratedObject().getValue().put(AttributeInfo.AttributeLength, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
-//            }
-//        });
-//        this.tokes.add(new Token<AttributeInfoToken>() {
-//            @Override
-//            public void accept(AttributeInfoToken attributeInfoToken, InputStream inputStream) {
-//                attributeInfoToken.getGeneratedObject().getValue().put(FieldInfos.AttributeCount, new ByteCode<Integer>(BytesReader.two(inputStream)) {});
-//            }
-//        });
     }
 
     @Override

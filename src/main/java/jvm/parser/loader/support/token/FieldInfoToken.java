@@ -2,12 +2,11 @@ package jvm.parser.loader.support.token;
 
 import jvm.parser.clazz.AccessFlags;
 import jvm.parser.clazz.Fields;
-import jvm.parser.clazz.attributes.AttributeLength;
 import jvm.parser.clazz.attributes.AttributesCount;
-import jvm.parser.clazz.fields.FieldDescriptionIndex;
+import jvm.parser.clazz.fields.field.info.FieldDescriptionIndex;
 import jvm.parser.clazz.fields.FieldInfo;
-import jvm.parser.clazz.fields.FieldInfos;
-import jvm.parser.clazz.fields.FieldNameIndex;
+import jvm.parser.clazz.fields.FieldInfoArray;
+import jvm.parser.clazz.fields.field.info.FieldNameIndex;
 import jvm.parser.datatype.*;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
@@ -18,8 +17,8 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class FieldInfoToken extends Visitor<FieldInfos, InputStream> implements U2, Token<FieldToken> {
-    private FieldInfos fieldInfos;
+public class FieldInfoToken extends Visitor<FieldInfoArray, InputStream> implements U2, Token<FieldToken> {
+    private FieldInfoArray fieldInfoArray;
 
     public FieldInfoToken() {
         this.initVisitor();
@@ -27,7 +26,7 @@ public class FieldInfoToken extends Visitor<FieldInfos, InputStream> implements 
 
     @Override
     protected void createVisitObject() {
-        this.generatedObject = new FieldInfos(new LinkedList<FieldInfo>());
+        this.generatedObject = new FieldInfoArray(new LinkedList<FieldInfo>());
     }
 
     @Override
@@ -41,9 +40,9 @@ public class FieldInfoToken extends Visitor<FieldInfos, InputStream> implements 
                 AttributesCount attributesCount = new AttributesCount(readU2(inputStream));
                 Map<String,ByteCode> value = new HashMap<>();
                 value.put(FieldInfo.ACCESS_FLAGS,accessFlags);
-                value.put(FieldInfo.NameIndex,fieldNameIndex);
-                value.put(FieldInfo.DescriptionIndex,fieldDescriptionIndex);
-                value.put(FieldInfo.AttributeCount,attributesCount);
+                value.put(FieldInfo.NAME_INDEX,fieldNameIndex);
+                value.put(FieldInfo.DESCRIPTION_INDEX,fieldDescriptionIndex);
+                value.put(FieldInfo.ATTRIBUTE_COUNT,attributesCount);
 //               TODO 插入Attributes
 
                 FieldInfo fieldInfo = new FieldInfo(value);
