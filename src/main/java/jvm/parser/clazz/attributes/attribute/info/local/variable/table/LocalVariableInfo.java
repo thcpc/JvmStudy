@@ -1,5 +1,6 @@
 package jvm.parser.clazz.attributes.attribute.info.local.variable.table;
 
+import jvm.parser.clazz.attributes.attribute.info.common.NameIndex;
 import jvm.parser.clazz.attributes.attribute.info.common.StartPc;
 import jvm.parser.datatype.ByteCode;
 

@@ -1,4 +1,4 @@
-package jvm.parser.clazz.attributes.attribute.info.local.variable.table;
+package jvm.parser.clazz.attributes.attribute.info.common;
 
 import jvm.parser.datatype.ByteCode;
 

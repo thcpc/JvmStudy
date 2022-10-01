@@ -1,5 +1,9 @@
 package jvm.parser.clazz.attributes.attribute.info;
 
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeLength;
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeNameIndex;
+import jvm.parser.clazz.attributes.attribute.info.exceptions.ExceptionIndexTable;
+import jvm.parser.clazz.attributes.attribute.info.exceptions.NumberOfExceptions;
 import jvm.parser.datatype.ByteCode;
 
 import java.util.Map;
@@ -7,17 +11,13 @@ import java.util.Map;
 public class ExceptionsAttribute extends ByteCode<Map<String, ByteCode>> {
 
     public final static String Name = "Exceptions";
-    // jvm.parser.clazz.attributes.attribute.info.common.AttributeNameIndex
-    public final static String AttributeNameIndex = "attribute_name_index";
+    public final static String ATTRIBUTE_NAME_INDEX = AttributeNameIndex.NAME;
 
-    // jvm.parser.clazz.attributes.attribute.info.common.AttributeLength
-    public final static String AttributeLength = "attribute_length";
+    public final static String ATTRIBUTE_LENGTH = AttributeLength.NAME;
 
-    // jvm.parser.clazz.attributes.attribute.info.exceptions.ExceptionIndexTable
-    public final static String NumberOfExceptions = "number_of_exceptions";
+    public final static String NUMBER_OF_EXCEPTIONS = NumberOfExceptions.NAME;
 
-    // jvm.parser.clazz.attributes.attribute.info.exceptions.NumberOfExceptions
-    public final static String exceptionIndexTable = "exception_index_table";
+    public final static String EXCEPTION_INDEX_TABLE = ExceptionIndexTable.Name;
 
     public ExceptionsAttribute(Map<String, ByteCode> value) {
         super(value);

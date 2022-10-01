@@ -2,17 +2,18 @@ package jvm.parser.clazz.attributes.attribute.info;
 
 import jvm.parser.clazz.attributes.Attributes;
 import jvm.parser.clazz.attributes.AttributesCount;
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeLength;
+import jvm.parser.clazz.attributes.attribute.info.common.AttributeNameIndex;
 import jvm.parser.datatype.ByteCode;
 
 import java.util.Map;
 
 public class CodeAttribute extends ByteCode<Map<String,ByteCode>> {
     public final static String NAME = "Code";
-    // jvm.parser.clazz.attributes.attribute.info.common.AttributeNameIndex
-    public final static String ATTRIBUTE_NAME_INDEX = "attribute_name_index";
 
-    // jvm.parser.clazz.attributes.attribute.info.common.AttributeLength
-    public final static String ATTRIBUTE_LENGTH = "attribute_length";
+    public final static String ATTRIBUTE_NAME_INDEX = AttributeNameIndex.NAME;
+
+    public final static String ATTRIBUTE_LENGTH = AttributeLength.NAME;
 
     //jvm.parser.clazz.attributes.attribute.info.code.MaxStack
     public final static String MAX_STACK = "max_stack";

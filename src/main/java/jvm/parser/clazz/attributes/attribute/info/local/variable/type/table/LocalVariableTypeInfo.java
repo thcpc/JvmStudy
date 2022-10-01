@@ -3,7 +3,7 @@ package jvm.parser.clazz.attributes.attribute.info.local.variable.type.table;
 import jvm.parser.clazz.attributes.attribute.info.common.StartPc;
 import jvm.parser.clazz.attributes.attribute.info.local.variable.table.Index;
 import jvm.parser.clazz.attributes.attribute.info.local.variable.table.Length;
-import jvm.parser.clazz.attributes.attribute.info.local.variable.table.NameIndex;
+import jvm.parser.clazz.attributes.attribute.info.common.NameIndex;
 import jvm.parser.datatype.ByteCode;
 
 import java.util.Map;
