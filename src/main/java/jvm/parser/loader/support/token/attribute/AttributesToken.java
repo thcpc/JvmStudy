@@ -1,4 +1,4 @@
-package jvm.parser.loader.support.token;
+package jvm.parser.loader.support.token.attribute;
 
 import jvm.parser.clazz.attributes.AttributeInfo;
 import jvm.parser.clazz.attributes.attribute.info.common.AttributeLength;
@@ -7,15 +7,16 @@ import jvm.parser.clazz.attributes.Attributes;
 import jvm.parser.datatype.*;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
+import jvm.parser.loader.support.token.fields.FieldsToken;
 
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AttributesToken extends Visitor<Attributes, InputStream> implements U2, U1, U4, Token<FieldInfoToken> {
+public class AttributesToken extends Visitor<Attributes, InputStream> implements U2, U1, U4, Token<FieldsToken> {
 
     @Override
-    public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
+    public void accept(FieldsToken fieldsToken, InputStream inputStream) {
 
     }
 

@@ -1,12 +1,12 @@
-package jvm.parser.loader.support.token;
+package jvm.parser.loader.support.token.fields;
 
 import jvm.parser.clazz.AccessFlags;
-import jvm.parser.clazz.Fields;
+import jvm.parser.clazz.FieldsTable;
 import jvm.parser.clazz.attributes.AttributesCount;
-import jvm.parser.clazz.fields.field.info.FieldDescriptionIndex;
+import jvm.parser.clazz.fields.field.info.DescriptionIndex;
 import jvm.parser.clazz.fields.FieldInfo;
-import jvm.parser.clazz.fields.FieldInfoArray;
-import jvm.parser.clazz.fields.field.info.FieldNameIndex;
+import jvm.parser.clazz.fields.Fields;
+import jvm.parser.clazz.fields.field.info.NameIndex;
 import jvm.parser.datatype.*;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
@@ -17,26 +17,26 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class FieldInfoToken extends Visitor<FieldInfoArray, InputStream> implements U2, Token<FieldToken> {
-    private FieldInfoArray fieldInfoArray;
+public class FieldsToken extends Visitor<Fields, InputStream> implements U2, Token<FieldTableToken> {
 
-    public FieldInfoToken() {
+
+    public FieldsToken() {
         this.initVisitor();
     }
 
     @Override
     protected void createVisitObject() {
-        this.generatedObject = new FieldInfoArray(new LinkedList<FieldInfo>());
+        this.generatedObject = new Fields(new LinkedList<FieldInfo>());
     }
 
     @Override
     protected void initTokens() {
-        this.tokes.add(new Token<FieldInfoToken>() {
+        this.tokes.add(new Token<FieldsToken>() {
             @Override
-            public void accept(FieldInfoToken fieldInfoToken, InputStream inputStream) {
+            public void accept(FieldsToken fieldsToken, InputStream inputStream) {
                 AccessFlags accessFlags = new AccessFlags(readU2(inputStream));
-                FieldNameIndex fieldNameIndex = new FieldNameIndex(readU2(inputStream));
-                FieldDescriptionIndex fieldDescriptionIndex = new FieldDescriptionIndex(readU2(inputStream));
+                NameIndex fieldNameIndex = new NameIndex(readU2(inputStream));
+                DescriptionIndex fieldDescriptionIndex = new DescriptionIndex(readU2(inputStream));
                 AttributesCount attributesCount = new AttributesCount(readU2(inputStream));
                 Map<String,ByteCode> value = new HashMap<>();
                 value.put(FieldInfo.ACCESS_FLAGS,accessFlags);
@@ -46,26 +46,29 @@ public class FieldInfoToken extends Visitor<FieldInfoArray, InputStream> impleme
 //               TODO 插入Attributes
 
                 FieldInfo fieldInfo = new FieldInfo(value);
-                fieldInfoToken.getGeneratedObject().getValue().add(fieldInfo);
+                fieldsToken.append(fieldInfo);
 
             }
         });
     }
+
+    public void append(FieldInfo fieldInfo){ this.generatedObject.getValue().add(fieldInfo); }
 
     @Override
     protected void visit(InputStream inputStream) {
         tokes.forEach(new Consumer<Token>() {
             @Override
             public void accept(Token token) {
-                token.accept(FieldInfoToken.this, inputStream);
+                token.accept(FieldsToken.this, inputStream);
             }
         });
     }
 
     @Override
-    public void accept(FieldToken fieldToken, InputStream inputStream) {
-        int count = (int) fieldToken.getGeneratedObject().getValue().get(Fields.FieldCount).getValue();
+    public void accept(FieldTableToken fieldTableToken, InputStream inputStream) {
+        int count = (int) fieldTableToken.getGeneratedObject().getValue().get(FieldsTable.FIELDS_COUNT).getValue();
         for(int i = 0;i<=count; i ++) this.visit(inputStream);
+        fieldTableToken.setFields(this.getGeneratedObject());
 //        fieldToken.getGeneratedObject().getValue().put(Fields.FieldInfo, this.getGeneratedObject());
 
     }

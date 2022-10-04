@@ -1,4 +1,4 @@
-package jvm.parser.loader.support.token;
+package jvm.parser.loader.support.token.attribute;
 
 import jvm.parser.clazz.Interfaces;
 import jvm.parser.datatype.U2;

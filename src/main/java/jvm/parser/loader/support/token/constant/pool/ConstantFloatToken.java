@@ -1,4 +1,4 @@
-package jvm.parser.loader.support.token;
+package jvm.parser.loader.support.token.constant.pool;
 
 import jvm.parser.clazz.constant.pools.ConstantFloatInfo;
 import jvm.parser.datatype.U4;

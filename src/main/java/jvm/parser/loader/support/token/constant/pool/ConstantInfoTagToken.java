@@ -1,4 +1,4 @@
-package jvm.parser.loader.support.token;
+package jvm.parser.loader.support.token.constant.pool;
 
 import jvm.parser.datatype.U1;
 import jvm.parser.loader.ClazzLoader;

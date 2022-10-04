@@ -2,8 +2,8 @@ package jvm.parser.clazz.fields.field.info;
 
 import jvm.parser.datatype.ByteCode;
 
-public class FieldNameIndex extends ByteCode<Integer> {
-    public FieldNameIndex(Integer value) {
+public class DescriptionIndex extends ByteCode<Integer> {
+    public DescriptionIndex(Integer value) {
         super(value);
     }
 }
