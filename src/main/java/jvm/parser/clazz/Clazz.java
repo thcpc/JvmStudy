@@ -79,14 +79,14 @@ public class Clazz {
         return constantUtf8Info.getValue();
     }
 
-    private Fields fields;
+    private FieldsTable fieldsTable;
 
-    public void setFields(Fields fields){ this.fields = fields; }
+    public void setFieldTable(FieldsTable fieldsTable){ this.fieldsTable = fieldsTable; }
 
-    public Fields getFields(){ return fields; }
+    public FieldsTable getFields(){ return fieldsTable; }
 
     public int fieldCount(){
-        return (int) fields.getValue().get(Fields.FieldCount).getValue();
+        return (int) fieldsTable.getValue().get(FieldsTable.FIELDS_COUNT).getValue();
     }
 
 

@@ -4,7 +4,10 @@ import jvm.parser.clazz.Clazz;
 import jvm.parser.loader.support.Token;
 import jvm.parser.loader.support.Visitor;
 import jvm.parser.loader.support.token.*;
-
+import jvm.parser.loader.support.token.attribute.InterfaceToken;
+import jvm.parser.loader.support.token.constant.pool.ConstantPoolCountToken;
+import jvm.parser.loader.support.token.constant.pool.ConstantPoolToken;
+import jvm.parser.loader.support.token.fields.FieldTableToken;
 
 
 import java.io.File;
@@ -34,7 +37,7 @@ public class ClazzLoader extends Visitor<Clazz,FileInputStream> {
         tokes.add(new ThisClassToken());
         tokes.add(new SuperClazzToken());
         tokes.add(new InterfaceToken());
-        tokes.add(new FieldToken());
+        tokes.add(new FieldTableToken());
     }
 
     @Override

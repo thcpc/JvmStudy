@@ -1,7 +1,7 @@
 package jvm.parser.datatype;
 
 public abstract class ByteCode<T> {
-    private T value;
+    protected T value;
 
     public ByteCode(T value) {
         this.value = value;
