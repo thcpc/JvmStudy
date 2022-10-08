@@ -4,86 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cb4fff-99b1-47cc-b48c-516ea42dcf73" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Notes.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ConstantPoolTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Hello.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/JVMMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/AccessFlags.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/Attributes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/AttributesCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/Clazz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/ConstantPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/ConstantPoolCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/Fields.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/FieldsCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/Interfaces.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/InterfacesCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/MagicNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/MajorVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/Methods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/MethodsCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/MinorVersion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/SuperClazz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/clazz/file/ThisClazz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantClassInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantDoubleInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantFieldDefInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantFloatInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantIntegerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantInterfaceMethodDefInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantInvokeDynamicInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantLongInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantMethodDefInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantMethodHandleInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantMethodTypeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantNameAndTypeInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantStringInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/constant/pools/ConstantUtf8Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/ByteCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/U.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/U1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/U2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/datatype/U4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/ClazzLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/ConstantToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantClassToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantDoubleToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantFieldDefToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantFloatToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantInfoTagToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantIntegerInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantInterfaceMethodDefInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantInvokeDynamicInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantLongToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantMethodDefToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantMethodHandleInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantMethodTypeInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantNameAndTyeToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantPoolCountToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantPoolToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantStringInfoToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/ConstantUtf8Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/MagicNumberToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/MajorVersionToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jvm/parser/reader/token/MinorVersionToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ClassTest.java" afterDir="false" />
+    <list default="true" id="26cb4fff-99b1-47cc-b48c-516ea42dcf73" name="Changes" comment="update the test code">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
