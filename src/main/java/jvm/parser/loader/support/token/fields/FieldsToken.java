@@ -56,12 +56,7 @@ public class FieldsToken extends Visitor<Fields, InputStream> implements U2, Tok
 
     @Override
     protected void visit(InputStream inputStream) {
-        tokes.forEach(new Consumer<Token>() {
-            @Override
-            public void accept(Token token) {
-                token.accept(FieldsToken.this, inputStream);
-            }
-        });
+        tokes.forEach(token -> token.accept(FieldsToken.this, inputStream));
     }
 
     @Override
