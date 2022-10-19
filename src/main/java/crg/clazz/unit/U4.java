@@ -5,10 +5,11 @@ import crg.utils.BytesReader;
 
 import java.io.InputStream;
 
-public class U4 extends Unit<Long> {
+public class U4{
 
-    @Override
-    public Long read(InputStream inputStream) {
+    public static Long read(InputStream inputStream) {
         return BytesReader.byteToLong(inputStream);
     }
+
+
 }
