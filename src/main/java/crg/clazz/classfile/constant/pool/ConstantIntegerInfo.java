@@ -1,11 +1,12 @@
 package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
+import crg.clazz.unit.U4;
 
 
 import java.io.InputStream;
 
-public class ConstantIntegerInfo extends CpInfo{
+public class ConstantIntegerInfo extends CpInfo<Long>{
 
 
     public ConstantIntegerInfo(Clazz clazz) {
@@ -14,7 +15,8 @@ public class ConstantIntegerInfo extends CpInfo{
 
     @Override
     public void read(InputStream inputStream) throws Exception {
-
+        value = U4.read(inputStream);
+        this.belongClazz().appendConstantIntegerInfo(this);
     }
 
     @Override
