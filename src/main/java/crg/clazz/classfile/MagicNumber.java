@@ -17,7 +17,7 @@ public class MagicNumber extends ByteCode {
     @Override
     public void read(InputStream inputStream) throws Exception {
         Long magic = U4.read(inputStream);
-        if(magic!=3405691582L) throw new Exception("非法的Class文件");
+        if(magic!=3405691582L) throw new Exception("Illegal Class");
         this.belongClazz().setMagic(magic);
     }
 

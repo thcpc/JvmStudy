@@ -9,6 +9,16 @@ public class Clazz {
 
     private Long magic;
     private String jdkVersion;
+    private Integer constantPoolCount;
+
+
+    public Integer getConstantPoolCount() {
+        return constantPoolCount;
+    }
+
+    public void setConstantPoolCount(Integer constantPoolCount) {
+        this.constantPoolCount = constantPoolCount;
+    }
 
     public String getJdkVersion() {
         return jdkVersion;
