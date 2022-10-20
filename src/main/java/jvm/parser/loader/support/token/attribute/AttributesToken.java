@@ -11,6 +11,7 @@ import jvm.parser.loader.support.token.fields.FieldsToken;
 
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class AttributesToken extends Visitor<Attributes, InputStream> implements U2, U1, U4, Token<FieldsToken> {
@@ -21,7 +22,7 @@ public class AttributesToken extends Visitor<Attributes, InputStream> implements
     }
 
     @Override
-    protected void createVisitObject() {
+    protected void createVisitObject() { this.generatedObject = new Attributes(new LinkedList<>());
 
     }
 
