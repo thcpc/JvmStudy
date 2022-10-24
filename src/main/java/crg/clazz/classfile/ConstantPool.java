@@ -25,9 +25,9 @@ public class ConstantPool extends ByteCode {
                 new ConstantDoubleInfo(this.belongClazz()), //6
                 new ConstantClassInfo(this.belongClazz()),//7
                 new ConstantStringInfo(this.belongClazz()),//8
-                new ConstantFieldDefInfo(this.belongClazz()),//9
-                new ConstantMethodDefInfo(this.belongClazz()),//10
-                new ConstantInterfaceMethodDefInfo(this.belongClazz()),//11
+                new ConstantFieldRefInfo(this.belongClazz()),//9
+                new ConstantMethodDRefInfo(this.belongClazz()),//10
+                new ConstantInterfaceMethodDRefInfo(this.belongClazz()),//11
                 new ConstantNameAndTypeInfo(this.belongClazz()),//12
                 null,//13
                 null,//14

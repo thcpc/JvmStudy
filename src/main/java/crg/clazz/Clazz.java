@@ -1,9 +1,6 @@
 package crg.clazz;
 
-import crg.clazz.classfile.MagicNumber;
 import crg.clazz.classfile.constant.pool.*;
-
-import crg.support.ByteCode;
 
 import java.util.LinkedList;
 
@@ -25,9 +22,9 @@ public class Clazz {
     private final LinkedList<ConstantLongInfo> constantLongInfos = new LinkedList<>();
     private final LinkedList<ConstantMethodTypeInfo> constantMethodTypeInfos = new LinkedList<>();
     private final LinkedList<ConstantUtf8Info> constantUtf8Infos = new LinkedList<>();
-    private final LinkedList<ConstantFieldDefInfo> constantFieldDefInfos = new LinkedList<>();
-    private final LinkedList<ConstantInterfaceMethodDefInfo> constantInterfaceMethodDefInfos = new LinkedList<>();
-    private final LinkedList<ConstantMethodDefInfo> constantMethodDefInfos = new LinkedList<>();
+    private final LinkedList<ConstantFieldRefInfo> constantFieldDefInfos = new LinkedList<>();
+    private final LinkedList<ConstantInterfaceMethodDRefInfo> constantInterfaceMethodDefInfos = new LinkedList<>();
+    private final LinkedList<ConstantMethodDRefInfo> constantMethodDefInfos = new LinkedList<>();
     private final LinkedList<ConstantNameAndTypeInfo> constantNameAndTypeInfos = new LinkedList<>();
 
 
@@ -73,15 +70,15 @@ public class Clazz {
         return constantUtf8Infos;
     }
 
-    public LinkedList<ConstantFieldDefInfo> getConstantFieldDefInfos() {
+    public LinkedList<ConstantFieldRefInfo> getConstantFieldDefInfos() {
         return constantFieldDefInfos;
     }
 
-    public LinkedList<ConstantInterfaceMethodDefInfo> getConstantInterfaceMethodDefInfos() {
+    public LinkedList<ConstantInterfaceMethodDRefInfo> getConstantInterfaceMethodDefInfos() {
         return constantInterfaceMethodDefInfos;
     }
 
-    public LinkedList<ConstantMethodDefInfo> getConstantMethodDefInfos() {
+    public LinkedList<ConstantMethodDRefInfo> getConstantMethodDefInfos() {
         return constantMethodDefInfos;
     }
 
@@ -101,9 +98,9 @@ public class Clazz {
     public void appendConstantLongInfo(ConstantLongInfo e){this.constantLongInfos.add(e);}
     public void appendConstantMethodTypeInfo(ConstantMethodTypeInfo e){this.constantMethodTypeInfos.add(e);}
     public void appendConstantUtf8Info(ConstantUtf8Info e){this.constantUtf8Infos.add(e);}
-    public void appendConstantFieldDefInfo(ConstantFieldDefInfo e){this.constantFieldDefInfos.add(e);}
-    public void appendConstantInterfaceMethodDefInfo(ConstantInterfaceMethodDefInfo e){this.constantInterfaceMethodDefInfos.add(e);}
-    public void appendConstantMethodDefInfo(ConstantMethodDefInfo e){this.constantMethodDefInfos.add(e);}
+    public void appendConstantFieldDefInfo(ConstantFieldRefInfo e){this.constantFieldDefInfos.add(e);}
+    public void appendConstantInterfaceMethodDefInfo(ConstantInterfaceMethodDRefInfo e){this.constantInterfaceMethodDefInfos.add(e);}
+    public void appendConstantMethodDefInfo(ConstantMethodDRefInfo e){this.constantMethodDefInfos.add(e);}
     public void appendConstantNameAndTypeInfo(ConstantNameAndTypeInfo e){this.constantNameAndTypeInfos.add(e);}
 
 
