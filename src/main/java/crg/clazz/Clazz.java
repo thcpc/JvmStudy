@@ -10,6 +10,16 @@ public class Clazz {
     private String jdkVersion;
     private Integer constantPoolCount;
 
+    private Integer accessFlag;
+
+    public Integer getAccessFlag() {
+        return accessFlag;
+    }
+
+    public void setAccessFlag(Integer accessFlag) {
+        this.accessFlag = accessFlag;
+    }
+
     private final LinkedList<ConstantIntegerInfo> constantIntegerInfos = new LinkedList<>();
 
     private final LinkedList<ConstantClassInfo> constantClassInfos  = new LinkedList<>();
