@@ -1,8 +1,6 @@
 package crg.clazz;
 
-import crg.clazz.classfile.MagicNumber;
-import crg.clazz.classfile.MajorVersion;
-import crg.clazz.classfile.MinorVersion;
+import crg.clazz.classfile.*;
 import crg.support.ByteCode;
 
 import java.io.File;
@@ -25,6 +23,8 @@ public class ClazzLoader {
         byteCodes.add(new MagicNumber(clazz));
         byteCodes.add(new MinorVersion(clazz));
         byteCodes.add(new MajorVersion(clazz));
+        byteCodes.add(new ConstantPoolCount(clazz));
+        byteCodes.add(new ConstantPool(clazz));
         FileInputStream fileInputStream = new FileInputStream(this.file);
         byteCodes.forEach(byteCode -> {
             try {

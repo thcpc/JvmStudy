@@ -38,7 +38,7 @@ public class AttributesToken extends Visitor<Attributes, InputStream> implements
                 Map<String,ByteCode> value = new HashMap<>();
                 value.put(AttributeInfo.ATTRIBUTE_LENGTH,attributeLength);
                 value.put(AttributeInfo.ATTRIBUTE_NAME_INDEX, attributeNameIndex);
-                // TODO 插入Attributes
+                // TODO Attributes
                 attributesToken.getGeneratedObject().getValue().add(new AttributeInfo(value));
             }
         });

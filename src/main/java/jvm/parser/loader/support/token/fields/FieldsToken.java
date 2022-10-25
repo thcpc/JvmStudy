@@ -43,7 +43,7 @@ public class FieldsToken extends Visitor<Fields, InputStream> implements U2, Tok
                 value.put(FieldInfo.NAME_INDEX,fieldNameIndex);
                 value.put(FieldInfo.DESCRIPTION_INDEX,fieldDescriptionIndex);
                 value.put(FieldInfo.ATTRIBUTE_COUNT,attributesCount);
-//               TODO 插入Attributes
+//               TODO Attributes
 
                 FieldInfo fieldInfo = new FieldInfo(value);
                 fieldsToken.append(fieldInfo);

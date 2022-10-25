@@ -21,5 +21,8 @@ public class ClassTest2 {
         System.out.println(clazz.getMagic());
         System.out.println(clazz.getJdkVersion());
 
+        System.out.println(clazz.getConstantPoolCount());
+        clazz.getConstantClassInfos().forEach(constantClassInfo -> System.out.println(constantClassInfo.getClassName()));
+
     }
 }
