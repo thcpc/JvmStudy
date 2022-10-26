@@ -24,6 +24,7 @@ public class ConstantLongInfo extends CpInfo<Long> {
         value = (long)(highBytes<<32) + lowBytes;
         this.belongClazz().appendConstantPoolInfo(this);
         this.belongClazz().appendConstantPoolInfo(null);
+//        this.belongClazz().appendConstantPoolInfo(null);
     }
 
     @Override

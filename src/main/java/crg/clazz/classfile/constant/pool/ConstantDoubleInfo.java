@@ -25,6 +25,7 @@ public class ConstantDoubleInfo extends CpInfo<Long> {
 //       belongClazz().appendConstantDoubleInfo(this);
        this.belongClazz().appendConstantPoolInfo(this);
        this.belongClazz().appendConstantPoolInfo(null);
+//       this.belongClazz().appendConstantPoolInfo(null);
     }
 
 

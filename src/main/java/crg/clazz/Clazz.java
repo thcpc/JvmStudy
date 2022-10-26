@@ -145,4 +145,6 @@ public class Clazz {
     public void setMagic(Long magic) { this.magic = magic; }
 
     public boolean isValid(){ return this.getMagic() == 3405691582L; }
+
+    public Clazz(){ constantPoolInfo.add(null);}
 }
