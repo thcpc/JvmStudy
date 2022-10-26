@@ -15,8 +15,13 @@ public class ConstantLongInfo extends CpInfo<Long> {
     }
 
     @Override
+    protected void lazyValue() { }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
-        value = U4.read(inputStream);
+        long highBytes = U4.read(inputStream);
+        long lowBytes = U4.read(inputStream);
+        value = (long)(highBytes<<32) + lowBytes;
         belongClazz().appendConstantLongInfo(this);
     }
 

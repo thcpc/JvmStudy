@@ -17,10 +17,14 @@ public class ConstantMethodHandleInfo extends CpInfo {
     }
 
     @Override
+    protected void lazyValue() {
+        value = new MethodHandleInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+    }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         this.bootstrapMethodAttrIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
-        value = new MethodHandleInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
         this.belongClazz().appendConstantMethodHandleInfo(this);
     }
 

@@ -16,12 +16,17 @@ public class ConstantNameAndTypeInfo extends CpInfo<ConstantNameAndTypeInfo.Name
     }
 
     @Override
-    public void read(InputStream inputStream) throws Exception {
-        name_index = U2.read(inputStream);
-        descriptor_index = U2.read(inputStream);
+    protected void lazyValue() {
         String name = belongClazz().getConstantUtf8Infos().get(name_index).getValue();
         String descriptor = belongClazz().getConstantUtf8Infos().get(descriptor_index).getValue();
         value = new NameAndType(name,descriptor);
+    }
+
+    @Override
+    public void read(InputStream inputStream) throws Exception {
+        name_index = U2.read(inputStream);
+        descriptor_index = U2.read(inputStream);
+
         this.belongClazz().appendConstantNameAndTypeInfo(this);
     }
 

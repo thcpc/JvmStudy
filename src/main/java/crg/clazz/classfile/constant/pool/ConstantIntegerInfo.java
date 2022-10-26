@@ -14,6 +14,9 @@ public class ConstantIntegerInfo extends CpInfo<Long>{
     }
 
     @Override
+    protected void lazyValue() { }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         value = U4.read(inputStream);
         this.belongClazz().appendConstantIntegerInfo(this);

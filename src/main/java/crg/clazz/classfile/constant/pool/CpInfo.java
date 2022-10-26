@@ -3,8 +3,6 @@ package crg.clazz.classfile.constant.pool;
 import crg.clazz.Clazz;
 import crg.support.ByteCode;
 
-import java.io.InputStream;
-
 public abstract class CpInfo<T> extends ByteCode {
 
     protected T value;
@@ -12,5 +10,12 @@ public abstract class CpInfo<T> extends ByteCode {
         super(clazz);
     }
 
-    public T getValue(){ return value;}
+    public T getValue(){
+        if(value == null){
+            lazyValue();
+        }
+        return value;
+    }
+
+    protected abstract void lazyValue();
 }

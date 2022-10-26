@@ -13,6 +13,9 @@ public class ConstantFloatInfo extends CpInfo<Long> {
     }
 
     @Override
+    protected void lazyValue() { }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         value = U4.read(inputStream);
         belongClazz().appendConstantFloatInfo(this);

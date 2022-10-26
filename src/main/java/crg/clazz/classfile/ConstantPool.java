@@ -42,8 +42,11 @@ public class ConstantPool extends ByteCode {
 
     @Override
     public void read(InputStream inputStream) throws Exception {
+
         for(int i = 0;i< belongClazz().getConstantPoolCount();i++){
             int tag = U1.read(inputStream);
+            System.out.println(tag);
+            if(this.cpInfos[tag] == null) throw new Exception("UnKnown Constant Info:" + tag);
             this.cpInfos[tag].read(inputStream);
 
         }

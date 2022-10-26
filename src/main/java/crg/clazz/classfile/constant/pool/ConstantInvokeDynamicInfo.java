@@ -5,7 +5,7 @@ import crg.clazz.unit.U2;
 
 import java.io.InputStream;
 
-public class ConstantInvokeDynamicInfo extends CpInfo {
+public class ConstantInvokeDynamicInfo extends CpInfo<ConstantInvokeDynamicInfo.InvokeDynamicInfo> {
 
     private int bootstrapMethodAttrIndex;
 
@@ -15,10 +15,15 @@ public class ConstantInvokeDynamicInfo extends CpInfo {
     }
 
     @Override
+    protected void lazyValue() {
+        value = new InvokeDynamicInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+    }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         this.bootstrapMethodAttrIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
-        value = new InvokeDynamicInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+
         this.belongClazz().appendConstantInvokeDynamicInfo(this);
     }
 

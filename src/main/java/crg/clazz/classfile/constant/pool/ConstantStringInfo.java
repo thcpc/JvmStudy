@@ -14,9 +14,14 @@ public class ConstantStringInfo extends CpInfo<String> {
     }
 
     @Override
+    protected void lazyValue() {
+        value = belongClazz().getConstantUtf8Infos().get(stringIndex).getValue();
+    }
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         stringIndex = U2.read(inputStream);
-        value = belongClazz().getConstantUtf8Infos().get(stringIndex).getValue();
+
         this.belongClazz().appendConstantStringInfo(this);
     }
 

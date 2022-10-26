@@ -17,6 +17,9 @@ public class ConstantUtf8Info extends CpInfo<String> {
     }
 
     @Override
+    protected void lazyValue() {}
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
         this.utflen = U2.read(inputStream);
         byte[] bytearr = new byte[this.utflen];

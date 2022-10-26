@@ -15,6 +15,9 @@ public class ConstantDoubleInfo extends CpInfo<Long> {
     }
 
     @Override
+    protected void lazyValue() {}
+
+    @Override
     public void read(InputStream inputStream) throws Exception {
        long highBytes = U4.read(inputStream);
        long lowBytes = U4.read(inputStream);

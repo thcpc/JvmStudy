@@ -26,13 +26,16 @@ public class ConstantMethodDRefInfo extends CpInfo<ConstantMethodDRefInfo.Method
     }
 
     @Override
-    public void read(InputStream inputStream) throws Exception {
-        this.classIndex = U2.read(inputStream);
-        this.nameAndTypeIndex = U2.read(inputStream);
-
+    protected void lazyValue() {
         ConstantClassInfo constantClassInfo = this.belongClazz().getConstantClassInfos().get(classIndex);
         ConstantNameAndTypeInfo constantNameAndTypeInfo = this.belongClazz().getConstantNameAndTypeInfos().get(nameAndTypeIndex);
         value = new MethodRef(constantClassInfo, constantNameAndTypeInfo);
+    }
+
+    @Override
+    public void read(InputStream inputStream) throws Exception {
+        this.classIndex = U2.read(inputStream);
+        this.nameAndTypeIndex = U2.read(inputStream);
         this.belongClazz().appendConstantMethodDefInfo(this);
     }
 
