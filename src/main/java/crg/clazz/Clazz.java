@@ -37,8 +37,14 @@ public class Clazz {
     private final LinkedList<ConstantMethodDRefInfo> constantMethodDefInfos = new LinkedList<>();
     private final LinkedList<ConstantNameAndTypeInfo> constantNameAndTypeInfos = new LinkedList<>();
 
+    private final LinkedList<CpInfo> constantPoolInfo = new LinkedList<>();
 
 
+    public LinkedList<CpInfo> getConstantPoolInfo() {
+        return constantPoolInfo;
+    }
+
+    public void appendConstantPoolInfo(CpInfo cpInfo){ this.constantPoolInfo.add(cpInfo) ;}
 
     public LinkedList<ConstantIntegerInfo> getConstantIntegerInfos() {
         return constantIntegerInfos;

@@ -18,7 +18,7 @@ public class ConstantFloatInfo extends CpInfo<Long> {
     @Override
     public void read(InputStream inputStream) throws Exception {
         value = U4.read(inputStream);
-        belongClazz().appendConstantFloatInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     @Override

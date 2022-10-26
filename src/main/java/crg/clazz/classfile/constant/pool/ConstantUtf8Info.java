@@ -29,6 +29,7 @@ public class ConstantUtf8Info extends CpInfo<String> {
             ioe.printStackTrace();
         }
         value = utf8Str(bytearr);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     private String utf8Str(byte[] bytearr) throws UTFDataFormatException {

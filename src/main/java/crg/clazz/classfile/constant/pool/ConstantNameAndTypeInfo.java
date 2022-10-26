@@ -17,8 +17,8 @@ public class ConstantNameAndTypeInfo extends CpInfo<ConstantNameAndTypeInfo.Name
 
     @Override
     protected void lazyValue() {
-        String name = belongClazz().getConstantUtf8Infos().get(name_index).getValue();
-        String descriptor = belongClazz().getConstantUtf8Infos().get(descriptor_index).getValue();
+        String name = (String)belongClazz().getConstantPoolInfo().get(name_index).getValue();
+        String descriptor = (String)belongClazz().getConstantPoolInfo().get(descriptor_index).getValue();
         value = new NameAndType(name,descriptor);
     }
 
@@ -27,7 +27,7 @@ public class ConstantNameAndTypeInfo extends CpInfo<ConstantNameAndTypeInfo.Name
         name_index = U2.read(inputStream);
         descriptor_index = U2.read(inputStream);
 
-        this.belongClazz().appendConstantNameAndTypeInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     public int getName_index() {

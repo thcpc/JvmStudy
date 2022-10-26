@@ -27,8 +27,8 @@ public class ConstantFieldRefInfo extends CpInfo<ConstantFieldRefInfo.FieldRef> 
 
     @Override
     protected void lazyValue() {
-        ConstantClassInfo constantClassInfo = this.belongClazz().getConstantClassInfos().get(classIndex);
-        ConstantNameAndTypeInfo constantNameAndTypeInfo = this.belongClazz().getConstantNameAndTypeInfos().get(nameAndTypeIndex);
+        ConstantClassInfo constantClassInfo = (ConstantClassInfo) this.belongClazz().getConstantPoolInfo().get(classIndex);
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)this.belongClazz().getConstantPoolInfo().get(nameAndTypeIndex);
         value = new FieldRef(constantClassInfo, constantNameAndTypeInfo);
     }
 
@@ -37,7 +37,8 @@ public class ConstantFieldRefInfo extends CpInfo<ConstantFieldRefInfo.FieldRef> 
         this.classIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
 
-        this.belongClazz().appendConstantFieldDefInfo(this);
+//        this.belongClazz().appendConstantFieldDefInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
 
     }
 

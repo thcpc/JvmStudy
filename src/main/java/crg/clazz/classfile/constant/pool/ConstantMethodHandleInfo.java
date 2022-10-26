@@ -18,14 +18,15 @@ public class ConstantMethodHandleInfo extends CpInfo {
 
     @Override
     protected void lazyValue() {
-        value = new MethodHandleInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)belongClazz().getConstantPoolInfo().get(this.nameAndTypeIndex);
+        value = new MethodHandleInfo(constantNameAndTypeInfo);
     }
 
     @Override
     public void read(InputStream inputStream) throws Exception {
         this.bootstrapMethodAttrIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
-        this.belongClazz().appendConstantMethodHandleInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     public int getBootstrapMethodAttrIndex() {

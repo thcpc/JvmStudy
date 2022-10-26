@@ -27,8 +27,8 @@ public class ConstantMethodDRefInfo extends CpInfo<ConstantMethodDRefInfo.Method
 
     @Override
     protected void lazyValue() {
-        ConstantClassInfo constantClassInfo = this.belongClazz().getConstantClassInfos().get(classIndex);
-        ConstantNameAndTypeInfo constantNameAndTypeInfo = this.belongClazz().getConstantNameAndTypeInfos().get(nameAndTypeIndex);
+        ConstantClassInfo constantClassInfo = (ConstantClassInfo)this.belongClazz().getConstantPoolInfo().get(classIndex);
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)this.belongClazz().getConstantPoolInfo().get(nameAndTypeIndex);
         value = new MethodRef(constantClassInfo, constantNameAndTypeInfo);
     }
 
@@ -36,7 +36,12 @@ public class ConstantMethodDRefInfo extends CpInfo<ConstantMethodDRefInfo.Method
     public void read(InputStream inputStream) throws Exception {
         this.classIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
-        this.belongClazz().appendConstantMethodDefInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + "  #"+this.classIndex + "  #"+this.nameAndTypeIndex + "// "+ getValue().getClassInfo().getValue() + ":" + getValue().getNameAndTypeInfo().getValue().getName();
     }
 
     @Override

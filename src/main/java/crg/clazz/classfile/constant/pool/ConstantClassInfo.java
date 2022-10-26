@@ -19,13 +19,14 @@ public class ConstantClassInfo extends CpInfo<String> {
 
     @Override
     protected void lazyValue() {
-        this.value = belongClazz().getConstantUtf8Infos().get(name_index).getValue();
+        this.value = (String) belongClazz().getConstantPoolInfo().get(name_index).getValue();
     }
 
     @Override
     public void read(InputStream inputStream) throws Exception {
         name_index = U2.read(inputStream);
-        this.belongClazz().appendConstantClassInfo(this);
+//        this.belongClazz().appendConstantClassInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     public int getNameIndex() {return this.name_index; }

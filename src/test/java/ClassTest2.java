@@ -1,11 +1,13 @@
 
 import crg.clazz.Clazz;
 import crg.clazz.ClazzLoader;
+import crg.clazz.classfile.constant.pool.CpInfo;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 public class ClassTest2 {
     public String getPath(){
@@ -22,7 +24,9 @@ public class ClassTest2 {
         System.out.println(clazz.getJdkVersion());
 
         System.out.println(clazz.getConstantPoolCount());
-        clazz.getConstantClassInfos().forEach(constantClassInfo -> System.out.println(constantClassInfo.getClassName()));
+//        clazz.getConstantPoolInfo().get(0).getValue();
+        clazz.getConstantPoolInfo().stream().filter(cpInfo -> cpInfo!=null).forEach(cpInfo -> System.out.println(cpInfo));
+//        clazz.getConstantClassInfos().forEach(constantClassInfo -> System.out.println(constantClassInfo.getClassName()));
 
     }
 }

@@ -16,7 +16,8 @@ public class ConstantInvokeDynamicInfo extends CpInfo<ConstantInvokeDynamicInfo.
 
     @Override
     protected void lazyValue() {
-        value = new InvokeDynamicInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)belongClazz().getConstantPoolInfo().get(this.nameAndTypeIndex);
+        value = new InvokeDynamicInfo(constantNameAndTypeInfo);
     }
 
     @Override
@@ -24,7 +25,7 @@ public class ConstantInvokeDynamicInfo extends CpInfo<ConstantInvokeDynamicInfo.
         this.bootstrapMethodAttrIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
 
-        this.belongClazz().appendConstantInvokeDynamicInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     public int getBootstrapMethodAttrIndex() {

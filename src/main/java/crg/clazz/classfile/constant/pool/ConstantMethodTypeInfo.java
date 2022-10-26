@@ -18,7 +18,8 @@ public class ConstantMethodTypeInfo extends CpInfo<ConstantMethodTypeInfo.Method
 
     @Override
     protected void lazyValue() {
-        value = new MethodTypeInfo(belongClazz().getConstantNameAndTypeInfos().get(this.nameAndTypeIndex));
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)belongClazz().getConstantPoolInfo().get(this.nameAndTypeIndex);
+        value = new MethodTypeInfo(constantNameAndTypeInfo);
     }
 
     @Override
@@ -26,7 +27,7 @@ public class ConstantMethodTypeInfo extends CpInfo<ConstantMethodTypeInfo.Method
         this.bootstrapMethodAttrIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
 
-        this.belongClazz().appendConstantMethodTypeInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
 

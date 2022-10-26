@@ -22,7 +22,9 @@ public class ConstantDoubleInfo extends CpInfo<Long> {
        long highBytes = U4.read(inputStream);
        long lowBytes = U4.read(inputStream);
        value = (long)(highBytes<<32) + lowBytes;
-       belongClazz().appendConstantDoubleInfo(this);
+//       belongClazz().appendConstantDoubleInfo(this);
+       this.belongClazz().appendConstantPoolInfo(this);
+       this.belongClazz().appendConstantPoolInfo(null);
     }
 
 

@@ -27,8 +27,8 @@ public class ConstantInterfaceMethodDRefInfo extends CpInfo<ConstantInterfaceMet
 
     @Override
     protected void lazyValue() {
-        ConstantClassInfo constantClassInfo = this.belongClazz().getConstantClassInfos().get(classIndex);
-        ConstantNameAndTypeInfo constantNameAndTypeInfo = this.belongClazz().getConstantNameAndTypeInfos().get(nameAndTypeIndex);
+        ConstantClassInfo constantClassInfo = (ConstantClassInfo)this.belongClazz().getConstantPoolInfo().get(classIndex);
+        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)this.belongClazz().getConstantPoolInfo().get(nameAndTypeIndex);
         value = new InterfaceMethodDRefInfo(constantClassInfo, constantNameAndTypeInfo);
     }
 
@@ -36,7 +36,7 @@ public class ConstantInterfaceMethodDRefInfo extends CpInfo<ConstantInterfaceMet
     public void read(InputStream inputStream) throws Exception {
         this.classIndex = U2.read(inputStream);
         this.nameAndTypeIndex = U2.read(inputStream);
-        this.belongClazz().appendConstantInterfaceMethodDefInfo(this);
+        this.belongClazz().appendConstantPoolInfo(this);
     }
 
     @Override
