@@ -3,7 +3,6 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U2;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,8 +11,8 @@ import java.io.UTFDataFormatException;
 public class ConstantUtf8Info extends CpInfo<String> {
 
     private int utflen;
-    public ConstantUtf8Info(Clazz clazz) {
-        super(clazz);
+    public ConstantUtf8Info(Clazz clazz, int index) {
+        super(clazz,index );
     }
 
     @Override
@@ -96,7 +95,7 @@ public class ConstantUtf8Info extends CpInfo<String> {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "CONSTANT_Utf8_info";
     }
 }

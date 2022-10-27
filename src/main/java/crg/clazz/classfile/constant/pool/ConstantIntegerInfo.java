@@ -9,8 +9,8 @@ import java.io.InputStream;
 public class ConstantIntegerInfo extends CpInfo<Long>{
 
 
-    public ConstantIntegerInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantIntegerInfo(Clazz clazz,int index) {
+        super(clazz,index );
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ConstantIntegerInfo extends CpInfo<Long>{
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "CONSTANT_Integer_info";
     }
 }

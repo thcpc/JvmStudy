@@ -22,7 +22,7 @@ public class MagicNumber extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "MagicNumber";
     }
 }

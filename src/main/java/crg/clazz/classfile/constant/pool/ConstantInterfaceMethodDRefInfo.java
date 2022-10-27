@@ -21,8 +21,8 @@ public class ConstantInterfaceMethodDRefInfo extends CpInfo<ConstantInterfaceMet
     public ConstantClassInfo getClassInfo(){ return this.getValue().getClassInfo(); }
     public ConstantNameAndTypeInfo getNameAndTypeInfo() { return this.getValue().getNameAndTypeInfo(); }
 
-    public ConstantInterfaceMethodDRefInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantInterfaceMethodDRefInfo(Clazz clazz,int index) {
+        super(clazz,index );
     }
 
     @Override
@@ -40,7 +40,7 @@ public class ConstantInterfaceMethodDRefInfo extends CpInfo<ConstantInterfaceMet
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return null;
     }
 

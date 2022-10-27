@@ -21,8 +21,8 @@ public class ConstantFieldRefInfo extends CpInfo<ConstantFieldRefInfo.FieldRef> 
     public ConstantClassInfo getClassInfo(){ return this.getValue().getClassInfo(); }
     public ConstantNameAndTypeInfo getNameAndTypeInfo() { return this.getValue().getNameAndTypeInfo(); }
 
-    public ConstantFieldRefInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantFieldRefInfo(Clazz clazz, int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class ConstantFieldRefInfo extends CpInfo<ConstantFieldRefInfo.FieldRef> 
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "CONSTANT_Fieldref_Info";
     }
 

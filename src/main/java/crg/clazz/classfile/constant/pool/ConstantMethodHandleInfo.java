@@ -1,56 +1,48 @@
 package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
+import crg.clazz.unit.U1;
 import crg.clazz.unit.U2;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
-import java.util.Map;
 
-public class ConstantMethodHandleInfo extends CpInfo {
+public class ConstantMethodHandleInfo extends CpInfo<ConstantMethodHandleInfo.MethodHandleInfo> {
 
-    private int bootstrapMethodAttrIndex;
+    private short referenceKind;
 
-    private int nameAndTypeIndex;
-    public ConstantMethodHandleInfo(Clazz clazz) {
-        super(clazz);
+    private int referenceIndex;
+    public ConstantMethodHandleInfo(Clazz clazz,int index) {
+        super(clazz,index );
     }
 
     @Override
     protected void lazyValue() {
-        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)belongClazz().getConstantPoolInfo().get(this.nameAndTypeIndex);
-        value = new MethodHandleInfo(constantNameAndTypeInfo);
+        ConstantMethodDRefInfo constantMethodDRefInfo = (ConstantMethodDRefInfo)belongClazz().getConstantPoolInfo().get(this.referenceIndex);
+        value = new MethodHandleInfo(constantMethodDRefInfo);
     }
 
     @Override
     public void read(InputStream inputStream) throws Exception {
-        this.bootstrapMethodAttrIndex = U2.read(inputStream);
-        this.nameAndTypeIndex = U2.read(inputStream);
+        this.referenceKind = U1.read(inputStream);
+        this.referenceIndex = U2.read(inputStream);
         this.belongClazz().appendConstantPoolInfo(this);
     }
 
-    public int getBootstrapMethodAttrIndex() {
-        return bootstrapMethodAttrIndex;
-    }
-
-    public int getNameAndTypeIndex() {
-        return nameAndTypeIndex;
-    }
 
     @Override
-    public String getName() {
-        return "CONSTANT_MethodHandle_info";
+    public String getByteCodeName() {
+        return "MethodHandle";
     }
 
     protected class MethodHandleInfo{
-        private final ConstantNameAndTypeInfo nameAndTypeInfo;
+        private final ConstantMethodDRefInfo constantMethodDRefInfo;
 
-        public MethodHandleInfo(ConstantNameAndTypeInfo nameAndTypeInfo) {
-            this.nameAndTypeInfo = nameAndTypeInfo;
+        public MethodHandleInfo(ConstantMethodDRefInfo constantMethodDRefInfo) {
+            this.constantMethodDRefInfo = constantMethodDRefInfo;
         }
 
-        public ConstantNameAndTypeInfo getNameAndTypeInfo() {
-            return nameAndTypeInfo;
+        public ConstantMethodDRefInfo getConstantMethodDRefInfo() {
+            return constantMethodDRefInfo;
         }
     }
 }

@@ -21,8 +21,8 @@ public class ConstantMethodDRefInfo extends CpInfo<ConstantMethodDRefInfo.Method
     public ConstantClassInfo getClassInfo(){ return this.getValue().getClassInfo(); }
     public ConstantNameAndTypeInfo getNameAndTypeInfo() { return this.getValue().getNameAndTypeInfo(); }
 
-    public ConstantMethodDRefInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantMethodDRefInfo(Clazz clazz, int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -41,12 +41,12 @@ public class ConstantMethodDRefInfo extends CpInfo<ConstantMethodDRefInfo.Method
 
     @Override
     public String toString() {
-        return this.getName() + "  #"+this.classIndex + "  #"+this.nameAndTypeIndex + "// "+ getValue().getClassInfo().getValue() + ":" + getValue().getNameAndTypeInfo().getValue().getName();
+        return this.getByteCodeName() + "  #"+this.classIndex + "  #"+this.nameAndTypeIndex + "// "+ getValue().getClassInfo().getValue() + ":" + getValue().getNameAndTypeInfo().getValue().getName();
     }
 
     @Override
-    public String getName() {
-        return null;
+    public String getByteCodeName() {
+        return "Methodref";
     }
 
     protected class MethodRef {

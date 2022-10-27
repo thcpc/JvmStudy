@@ -33,32 +33,10 @@ public class ConstantPool extends ByteCode {
                 null,//14
                  ConstantMethodHandleInfo.class,//15
                  ConstantMethodTypeInfo.class,//16
-                null,//17
+//                null,
+                 ConstantDynamicInfo.class,//17  JDK 11
                  ConstantInvokeDynamicInfo.class,//18
         };
-//        this.cpInfos = new CpInfo[]{
-//                null,//0
-//                new ConstantUtf8Info(this.belongClazz()),//1
-//                null,//2
-//                new ConstantIntegerInfo(this.belongClazz()),//3
-//                new ConstantFloatInfo(this.belongClazz()),//4
-//                new ConstantLongInfo(this.belongClazz()),//5
-//                new ConstantDoubleInfo(this.belongClazz()), //6
-//                new ConstantClassInfo(this.belongClazz()),//7
-//                new ConstantStringInfo(this.belongClazz()),//8
-//                new ConstantFieldRefInfo(this.belongClazz()),//9
-//                new ConstantMethodDRefInfo(this.belongClazz()),//10
-//                new ConstantInterfaceMethodDRefInfo(this.belongClazz()),//11
-//                new ConstantNameAndTypeInfo(this.belongClazz()),//12
-//                null,//13
-//                null,//14
-//                new ConstantMethodHandleInfo(this.belongClazz()),//15
-//                new ConstantMethodTypeInfo(this.belongClazz()),//16
-//                null,//17
-//                new ConstantInvokeDynamicInfo(this.belongClazz()),//18
-//
-//
-//        };
     }
 
     @Override
@@ -68,7 +46,7 @@ public class ConstantPool extends ByteCode {
             short tag = U1.read(inputStream);
 
             if(this.cpInfos[tag] == null) throw new Exception("UnKnown Constant Info:" + tag);
-            this.cpInfos[tag].getConstructor(Clazz.class).newInstance(belongClazz()).read(inputStream);
+            this.cpInfos[tag].getConstructor(Clazz.class,int.class).newInstance(belongClazz(),i).read(inputStream);
             if(tag == 5 || tag == 6){ i+=1;}
 //            else realCount+=1;
 
@@ -78,7 +56,7 @@ public class ConstantPool extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "ConstantPool";
     }
 }

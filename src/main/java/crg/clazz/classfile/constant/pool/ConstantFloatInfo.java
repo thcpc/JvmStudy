@@ -2,14 +2,13 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U4;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
 
 public class ConstantFloatInfo extends CpInfo<Long> {
 
-    public ConstantFloatInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantFloatInfo(Clazz clazz, int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -22,7 +21,7 @@ public class ConstantFloatInfo extends CpInfo<Long> {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "CONSTANT_Float_info";
     }
 }

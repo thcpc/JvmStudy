@@ -3,15 +3,14 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U4;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
 
 public class ConstantLongInfo extends CpInfo<Long> {
 
 
-    public ConstantLongInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantLongInfo(Clazz clazz,int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -28,7 +27,18 @@ public class ConstantLongInfo extends CpInfo<Long> {
     }
 
     @Override
-    public String getName() {
-        return null;
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("#").append(this.getIndex());
+        sb.append("=");
+        sb.append(this.getByteCodeName());
+        sb.append("    ");
+        sb.append(this.getValue()).append("L");
+        return sb.toString();
+    }
+
+    @Override
+    public String getByteCodeName() {
+        return "Long";
     }
 }

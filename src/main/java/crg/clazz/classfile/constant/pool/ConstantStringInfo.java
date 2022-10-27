@@ -9,8 +9,8 @@ import java.io.InputStream;
 public class ConstantStringInfo extends CpInfo<String> {
 
     private int stringIndex;
-    public ConstantStringInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantStringInfo(Clazz clazz, int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ConstantStringInfo extends CpInfo<String> {
     public String getString(){ return this.getValue(); }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "CONSTANT_String_info";
     }
 }

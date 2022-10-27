@@ -22,6 +22,7 @@ public class ConstantPoolTest implements Runnable {
     public void b(){
         String zz = "xxx";
         testLambda();
+        this.foo();
     }
 
     public void testLambda(){
@@ -42,5 +43,9 @@ public class ConstantPoolTest implements Runnable {
             }
         };
         r.run();
+    }
+
+    public void foo(){
+        new Thread(()->{ System.out.println("hello");}).start();
     }
 }

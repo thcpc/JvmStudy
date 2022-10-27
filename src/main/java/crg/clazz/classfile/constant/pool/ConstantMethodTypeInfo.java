@@ -2,59 +2,40 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U2;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
-import java.util.Map;
 
-public class ConstantMethodTypeInfo extends CpInfo<ConstantMethodTypeInfo.MethodTypeInfo> {
-    private int bootstrapMethodAttrIndex;
+public class ConstantMethodTypeInfo extends CpInfo<String> {
+//    private int bootstrapMethodAttrIndex;
 
-    private int nameAndTypeIndex;
+    private int descriptor_index;
 
-    public ConstantMethodTypeInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantMethodTypeInfo(Clazz clazz,int index) {
+        super(clazz, index);
     }
 
     @Override
     protected void lazyValue() {
-        ConstantNameAndTypeInfo constantNameAndTypeInfo = (ConstantNameAndTypeInfo)belongClazz().getConstantPoolInfo().get(this.nameAndTypeIndex);
-        value = new MethodTypeInfo(constantNameAndTypeInfo);
+        value = (String)belongClazz().getConstantPoolInfo().get(this.descriptor_index).getValue();
+//        value = new MethodTypeInfo(constantNameAndTypeInfo);
     }
 
     @Override
     public void read(InputStream inputStream) throws Exception {
-        this.bootstrapMethodAttrIndex = U2.read(inputStream);
-        this.nameAndTypeIndex = U2.read(inputStream);
+        this.descriptor_index = U2.read(inputStream);
+
 
         this.belongClazz().appendConstantPoolInfo(this);
     }
 
 
-
-
-    public int getBootstrapMethodAttrIndex() {
-        return bootstrapMethodAttrIndex;
-    }
-
-    public int getNameAndTypeIndex() {
-        return nameAndTypeIndex;
+    public int getDescriptor_index() {
+        return descriptor_index;
     }
 
     @Override
-    public String getName() {
-        return "CONSTANT_MethodType_info";
+    public String getByteCodeName() {
+        return "MethodType";
     }
 
-    protected class MethodTypeInfo{
-        private final ConstantNameAndTypeInfo nameAndTypeInfo;
-
-        public MethodTypeInfo(ConstantNameAndTypeInfo nameAndTypeInfo) {
-            this.nameAndTypeInfo = nameAndTypeInfo;
-        }
-
-        public ConstantNameAndTypeInfo getNameAndTypeInfo() {
-            return nameAndTypeInfo;
-        }
-    }
 }

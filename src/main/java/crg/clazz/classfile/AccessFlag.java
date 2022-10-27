@@ -30,7 +30,7 @@ public class AccessFlag extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "Access_flags";
     }
 }

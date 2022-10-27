@@ -18,7 +18,7 @@ public class ConstantPoolCount extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "ConstantPoolCount";
     }
 }
