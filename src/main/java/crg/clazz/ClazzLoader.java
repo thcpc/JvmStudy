@@ -26,6 +26,9 @@ public class ClazzLoader {
         byteCodes.add(new ConstantPoolCount(clazz));
         byteCodes.add(new ConstantPool(clazz));
         byteCodes.add(new AccessFlag(clazz));
+        byteCodes.add(new ThisClazz(clazz));
+        byteCodes.add(new SuperClazz(clazz));
+        byteCodes.add(new Interfaces(clazz));
         FileInputStream fileInputStream = new FileInputStream(this.file);
         byteCodes.forEach(byteCode -> {
             try {
