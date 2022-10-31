@@ -32,7 +32,7 @@ public class MajorVersion extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "MajorVersion";
     }
 }

@@ -3,15 +3,14 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U4;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
 
-public class ConstantDoubleInfo extends CpInfo<Long> {
+public class ConstantDoubleInfo extends CpInfo<Double> {
 
 
-    public ConstantDoubleInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantDoubleInfo(Clazz clazz,int index) {
+        super(clazz,index );
     }
 
     @Override
@@ -21,16 +20,27 @@ public class ConstantDoubleInfo extends CpInfo<Long> {
     public void read(InputStream inputStream) throws Exception {
        long highBytes = U4.read(inputStream);
        long lowBytes = U4.read(inputStream);
-       value = (long)(highBytes<<32) + lowBytes;
+//       value = ;
+       value = Double.longBitsToDouble((long)(highBytes<<32) + lowBytes);
 //       belongClazz().appendConstantDoubleInfo(this);
        this.belongClazz().appendConstantPoolInfo(this);
        this.belongClazz().appendConstantPoolInfo(null);
 //       this.belongClazz().appendConstantPoolInfo(null);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("#").append(this.getIndex());
+        sb.append("=");
+        sb.append(this.getByteCodeName());
+        sb.append("    ");
+        sb.append(this.getValue()).append("d");
+        return sb.toString();
+    }
 
     @Override
-    public String getName() {
-        return "CONSTANT_Double_info";
+    public String getByteCodeName() {
+        return "Double";
     }
 }

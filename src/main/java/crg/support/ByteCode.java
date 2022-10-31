@@ -15,7 +15,7 @@ public abstract class ByteCode {
 
 
 
-    public abstract String getName();
+    public abstract String getByteCodeName();
 
     public Clazz belongClazz() { return clazz; }
 }

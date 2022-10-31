@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class ClassTest2 {
@@ -25,7 +26,11 @@ public class ClassTest2 {
 
         System.out.println(clazz.getConstantPoolCount());
 //        clazz.getConstantPoolInfo().get(0).getValue();
-        clazz.getConstantPoolInfo().stream().filter(cpInfo -> cpInfo!=null).forEach(cpInfo -> System.out.println(cpInfo));
+        clazz.getConstantPoolInfo().stream().filter(Objects::nonNull).forEach(System.out::println);
+        System.out.println(clazz.getThisClass());
+        System.out.println(clazz.getSuperClass());
+        System.out.println(clazz.getInterfaceCount());
+        clazz.getInterfaces().forEach(System.out::println);
 //        clazz.getConstantClassInfos().forEach(constantClassInfo -> System.out.println(constantClassInfo.getClassName()));
 
     }

@@ -2,17 +2,15 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U2;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
-import java.util.Map;
 
 public class ConstantNameAndTypeInfo extends CpInfo<ConstantNameAndTypeInfo.NameAndType>{
     private int name_index;
     private int descriptor_index;
 
-    public ConstantNameAndTypeInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantNameAndTypeInfo(Clazz clazz, int index) {
+        super(clazz, index);
     }
 
     @Override
@@ -49,7 +47,7 @@ public class ConstantNameAndTypeInfo extends CpInfo<ConstantNameAndTypeInfo.Name
 
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return null;
     }
 

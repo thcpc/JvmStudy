@@ -19,7 +19,7 @@ public class MinorVersion extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "MinorVersion";
     }
 }

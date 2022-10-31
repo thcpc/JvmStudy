@@ -24,6 +24,46 @@ public class Clazz {
 
     private Integer accessFlag;
 
+    private String thisClass;
+
+    private String superClass;
+
+    private int interfaceCount;
+
+    private LinkedList<String> interfaces = new LinkedList<>();
+
+    public int getInterfaceCount() {
+        return interfaceCount;
+    }
+
+    public void setInterfaceCount(int interfaceCount) {
+        this.interfaceCount = interfaceCount;
+    }
+
+    public LinkedList<String> getInterfaces() {
+        return interfaces;
+    }
+
+    public void appendInterfaces(String interfaceString){
+        this.getInterfaces().add(interfaceString);
+    }
+
+    public String getSuperClass() {
+        return superClass;
+    }
+
+    public void setSuperClass(String superClass) {
+        this.superClass = superClass;
+    }
+
+    public String getThisClass() {
+        return thisClass;
+    }
+
+    public void setThisClass(String thisClass) {
+        this.thisClass = thisClass;
+    }
+
     public Integer getAccessFlag() {
         return accessFlag;
     }

@@ -4,17 +4,15 @@ package crg.clazz.classfile.constant.pool;
 
 import crg.clazz.Clazz;
 import crg.clazz.unit.U2;
-import jvm.parser.clazz.constant.pools.ConstantInfo;
 
 import java.io.InputStream;
-import java.util.Map;
 
 public class ConstantClassInfo extends CpInfo<String> {
 
     private int name_index;
 
-    public ConstantClassInfo(Clazz clazz) {
-        super(clazz);
+    public ConstantClassInfo(Clazz clazz,int index) {
+        super(clazz,index );
     }
 
     @Override
@@ -33,8 +31,24 @@ public class ConstantClassInfo extends CpInfo<String> {
 
     public String getClassName() { return this.getValue();}
 
+
     @Override
-    public String getName() {
-        return "CONSTANT_Class_info";
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("#");
+        sb.append(this.getIndex());
+        sb.append("=");
+        sb.append(this.getByteCodeName());
+        sb.append("   ");
+        sb.append("#");
+        sb.append(this.getNameIndex());
+        sb.append("    ");
+        sb.append(this.getValue());
+        return sb.toString();
+    }
+
+    @Override
+    public String getByteCodeName() {
+        return "Class";
     }
 }

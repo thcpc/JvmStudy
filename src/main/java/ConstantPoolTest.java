@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.function.Function;
 
-public class ConstantPoolTest implements Runnable {
+public class ConstantPoolTest implements Runnable,JVMMain {
     public final int i = 68;
     public int j = 50;
     public final double aDouble = 888;
@@ -22,6 +22,7 @@ public class ConstantPoolTest implements Runnable {
     public void b(){
         String zz = "xxx";
         testLambda();
+        this.foo();
     }
 
     public void testLambda(){
@@ -42,5 +43,14 @@ public class ConstantPoolTest implements Runnable {
             }
         };
         r.run();
+    }
+
+    public void foo(){
+        new Thread(()->{ System.out.println("hello");}).start();
+    }
+
+    @Override
+    public void test() {
+        System.out.println("test");
     }
 }
