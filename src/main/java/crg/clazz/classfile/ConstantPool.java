@@ -36,29 +36,7 @@ public class ConstantPool extends ByteCode {
                 null,//17
                  ConstantInvokeDynamicInfo.class,//18
         };
-//        this.cpInfos = new CpInfo[]{
-//                null,//0
-//                new ConstantUtf8Info(this.belongClazz()),//1
-//                null,//2
-//                new ConstantIntegerInfo(this.belongClazz()),//3
-//                new ConstantFloatInfo(this.belongClazz()),//4
-//                new ConstantLongInfo(this.belongClazz()),//5
-//                new ConstantDoubleInfo(this.belongClazz()), //6
-//                new ConstantClassInfo(this.belongClazz()),//7
-//                new ConstantStringInfo(this.belongClazz()),//8
-//                new ConstantFieldRefInfo(this.belongClazz()),//9
-//                new ConstantMethodDRefInfo(this.belongClazz()),//10
-//                new ConstantInterfaceMethodDRefInfo(this.belongClazz()),//11
-//                new ConstantNameAndTypeInfo(this.belongClazz()),//12
-//                null,//13
-//                null,//14
-//                new ConstantMethodHandleInfo(this.belongClazz()),//15
-//                new ConstantMethodTypeInfo(this.belongClazz()),//16
-//                null,//17
-//                new ConstantInvokeDynamicInfo(this.belongClazz()),//18
-//
-//
-//        };
+
     }
 
     @Override

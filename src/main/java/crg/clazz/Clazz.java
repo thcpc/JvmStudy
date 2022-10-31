@@ -1,6 +1,8 @@
 package crg.clazz;
 
 import crg.clazz.classfile.constant.pool.*;
+import crg.clazz.classfile.field.FieldInfo;
+
 
 import java.util.LinkedList;
 
@@ -9,6 +11,16 @@ public class Clazz {
     private Long magic;
     private String jdkVersion;
     private Integer constantPoolCount;
+
+    private Integer fieldCount;
+
+    public Integer getFieldCount() {
+        return fieldCount;
+    }
+
+    public void setFieldCount(Integer fieldCount) {
+        this.fieldCount = fieldCount;
+    }
 
     private Integer accessFlag;
 
@@ -21,6 +33,7 @@ public class Clazz {
     }
 
     private final LinkedList<ConstantIntegerInfo> constantIntegerInfos = new LinkedList<>();
+    private final LinkedList<FieldInfo> fieldInfos = new LinkedList<>();
 
     private final LinkedList<ConstantClassInfo> constantClassInfos  = new LinkedList<>();
     private final LinkedList<ConstantFloatInfo> constantFloatInfos  = new LinkedList<>();
