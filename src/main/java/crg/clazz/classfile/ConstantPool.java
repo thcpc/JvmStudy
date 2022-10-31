@@ -79,7 +79,8 @@ public class ConstantPool extends ByteCode {
     }
 
     @Override
-    public String getName() {
+    public String getByteCodeName() {
         return "ConstantPool";
     }
+
 }
