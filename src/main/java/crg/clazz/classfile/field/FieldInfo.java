@@ -16,7 +16,9 @@ public class FieldInfo extends ByteCode {
     }
 
     @Override
-    public String getName() {
-        return "field_info";
+    public String getByteCodeName() {
+        return null;
     }
+
+
 }

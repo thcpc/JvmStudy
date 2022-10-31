@@ -18,7 +18,8 @@ public class FieldsCount extends ByteCode {
     }
 
     @Override
-    public String getName() {
-        return "fields_count";
+    public String getByteCodeName() {
+        return null;
     }
+
 }
