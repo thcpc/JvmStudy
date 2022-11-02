@@ -44,6 +44,14 @@ public class Clazz {
         return interfaces;
     }
 
+    public LinkedList<FieldInfo> getFieldInfos() {
+        return fieldInfos;
+    }
+
+    public void appendFieldInfo(FieldInfo fieldInfo){
+        this.fieldInfos.add(fieldInfo);
+    }
+
     public void appendInterfaces(String interfaceString){
         this.getInterfaces().add(interfaceString);
     }

@@ -26,12 +26,12 @@ public class ClassTest2 {
 
         System.out.println(clazz.getConstantPoolCount());
 //        clazz.getConstantPoolInfo().get(0).getValue();
-        clazz.getConstantPoolInfo().stream().filter(Objects::nonNull).forEach(System.out::println);
-        System.out.println(clazz.getThisClass());
-        System.out.println(clazz.getSuperClass());
-        System.out.println(clazz.getInterfaceCount());
-        clazz.getInterfaces().forEach(System.out::println);
-//        clazz.getConstantClassInfos().forEach(constantClassInfo -> System.out.println(constantClassInfo.getClassName()));
+//        clazz.getConstantPoolInfo().stream().filter(Objects::nonNull).forEach(System.out::println);
+//        System.out.println(clazz.getThisClass());
+//        System.out.println(clazz.getSuperClass());
+//        System.out.println(clazz.getInterfaceCount());
+//        clazz.getInterfaces().forEach(System.out::println);
+        clazz.getFieldInfos().forEach(e->System.out.println(e.getName()+e.getDescriptor()));
 
     }
 }

@@ -30,6 +30,7 @@ public class ClazzLoader {
         byteCodes.add(new SuperClazz(clazz));
         byteCodes.add(new Interfaces(clazz));
         byteCodes.add(new FieldsCount(clazz));
+        byteCodes.add(new Fields(clazz));
         FileInputStream fileInputStream = new FileInputStream(this.file);
         byteCodes.forEach(byteCode -> {
             try {
