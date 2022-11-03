@@ -2,6 +2,7 @@ package crg.clazz;
 
 import crg.clazz.classfile.constant.pool.*;
 import crg.clazz.classfile.field.FieldInfo;
+import crg.clazz.classfile.method.MethodInfo;
 
 
 import java.util.LinkedList;
@@ -13,6 +14,16 @@ public class Clazz {
     private Integer constantPoolCount;
 
     private Integer fieldCount;
+
+    private Integer methodCount;
+
+    public Integer getMethodCount() {
+        return methodCount;
+    }
+
+    public void setMethodCount(Integer methodCount) {
+        this.methodCount = methodCount;
+    }
 
     public Integer getFieldCount() {
         return fieldCount;
@@ -31,6 +42,17 @@ public class Clazz {
     private int interfaceCount;
 
     private LinkedList<String> interfaces = new LinkedList<>();
+
+    private LinkedList<MethodInfo> methodInfos = new LinkedList<>();
+
+
+    public LinkedList<MethodInfo> getMethodInfos() {
+        return methodInfos;
+    }
+
+    public void appendMethodInfo(MethodInfo methodInfo){
+        this.methodInfos.add(methodInfo);
+    }
 
     public int getInterfaceCount() {
         return interfaceCount;

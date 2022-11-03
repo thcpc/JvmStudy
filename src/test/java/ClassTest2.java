@@ -31,7 +31,8 @@ public class ClassTest2 {
 //        System.out.println(clazz.getSuperClass());
 //        System.out.println(clazz.getInterfaceCount());
 //        clazz.getInterfaces().forEach(System.out::println);
-        clazz.getFieldInfos().forEach(e->System.out.println(e.getName()+e.getDescriptor()));
+//        clazz.getFieldInfos().forEach(e->System.out.println(e.getName()+e.getDescriptor()));
+        clazz.getMethodInfos().forEach(e->System.out.println(e.getName() + e.getDescriptor()));
 
     }
 }
